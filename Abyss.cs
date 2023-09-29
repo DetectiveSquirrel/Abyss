@@ -77,16 +77,6 @@ namespace Abyss
             }
         }
 
-        public override void EntityRemoved(Entity entity)
-        {
-
-            lock (abyssEntities)
-            {
-                abyssEntities.Remove(entity);
-                LogMessage($"Removed: {entity.Metadata}, POS: {entity.GridPosNum}");
-            }
-        }
-
         private Vector3 ExpandWithTerrainHeight(Vector2 gridPosition)
         {
             return new Vector3(gridPosition.GridToWorld(), GameController.IngameState.Data.GetTerrainHeightAt(gridPosition));
