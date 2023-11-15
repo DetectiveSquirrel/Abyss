@@ -73,7 +73,6 @@ namespace Abyss
             if (entity.Metadata.StartsWith("Metadata/MiscellaneousObjects/Abyss/") && entity.Metadata != "Metadata/MiscellaneousObjects/Abyss/AbyssNodeMini")
             {
                 abyssEntities.Add(entity);
-                LogMessage($@"Added: {entity.Metadata}, POS: {entity.GridPosNum}");
             }
         }
 
