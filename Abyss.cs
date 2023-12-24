@@ -121,11 +121,10 @@ public class Abyss : BaseSettingsPlugin<AbyssSettings>
             var entity1 = drawingOrder[i];
             var entity2 = drawingOrder[i + 1];
 
-            if (entity1.GridPosNum == entity2.GridPosNum || entity1.GridPosNum == Vector2.Zero ||
-                entity2.GridPosNum == Vector2.Zero)
-                continue;
-
-            if (entity2.Metadata.Contains("Final") || entity2.Metadata.Contains("End"))
+            if (entity1.Distance(entity2) > Settings.MaxAbyssNodeDistanceFromPrevious ||
+                entity1.GridPosNum == entity2.GridPosNum || entity1.GridPosNum == Vector2.Zero ||
+                entity2.GridPosNum == Vector2.Zero || entity2.Metadata.Contains("Final") ||
+                entity2.Metadata.Contains("End"))
                 continue;
 
             var mapEntity1 = GetMapScreenPosition(entity1.GridPosNum);
